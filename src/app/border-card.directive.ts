@@ -13,7 +13,7 @@ export class BorderCardDirective {
     this.setHeight(this.defaultHeight);
   }
 
-  @Input() borderColor : string;
+  @Input('appBorderCard') borderColor : string;
 
   @HostListener('mouseenter') onMouseEnter(){
     this.setBorder(this.borderColor || this.defaultColor);
