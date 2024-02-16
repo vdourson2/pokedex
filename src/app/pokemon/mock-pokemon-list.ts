@@ -7,7 +7,7 @@ export const POKEMONS : Pokemon[] = [
         cp: 5,
         name: 'Bulbizarre',
         picture: 'https://www.serebii.net/pokemon/art/001.png',
-        types: ['Plante', 'Poisson'],
+        types: ['Plante', 'Poison'],
         created: new Date(),
     },
     {
