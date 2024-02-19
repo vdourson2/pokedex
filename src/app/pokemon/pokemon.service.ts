@@ -15,13 +15,13 @@ export class PokemonService {
 
   getPokemonTypeList(): string[]{
     return [
-      'plante',
-      'poison',
-      'feu',
-      'eau',
-      'insecte',
-      'normal',
-      'vol'
+      'Plante',
+      'Poison',
+      'Feu',
+      'Eau',
+      'Insecte',
+      'Normal',
+      'Vol'
     ];
   }
 
