@@ -18,6 +18,21 @@
             </div>
           </div>
     
+          <!-- Pokemon picture -->
+          <div *ngIf="isAdd" class="form-group">
+            <label for="picture">Image</label>
+            <input type="url" class="form-control" id="picture"
+                    required
+                    pattern="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/[0-9]{3}.png"
+                   [(ngModel)]="pokemon.picture" name="picture"
+                   #picture="ngModel">
+    
+            <div [hidden]="picture.valid || picture.pristine"
+                  class="card-panel red accent-1">
+                  L'image n'est pas valide.
+            </div>
+          </div>
+
           <!-- Pokemon hp -->
           <div class="form-group">
             <label for="hp">Point de vie</label>

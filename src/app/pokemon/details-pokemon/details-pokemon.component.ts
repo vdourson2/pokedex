@@ -9,7 +9,6 @@ import { PokemonService } from '../pokemon.service';
 })
 export class DetailsPokemonComponent implements OnInit {
 
-  listPokemons : Pokemon[];
   pokemon : Pokemon | undefined;
   
   constructor(
@@ -21,8 +20,14 @@ export class DetailsPokemonComponent implements OnInit {
   ngOnInit(): void {
     const id : string|null = this.route.snapshot.paramMap.get('id');
     if (id){
-      this.pokemon = this.pokemonService.getPokemonById(+id);
+      this.pokemonService.getPokemonById(+id).subscribe(pokemon => this.pokemon = pokemon);
     }
+  }
+
+  deletePokemon(pokemonId : number){
+    this.pokemonService.deletePokemonById(pokemonId).subscribe(
+      () => this.goToListPokemon()
+    )
   }
 
   goToListPokemon() {
