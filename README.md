@@ -1,6 +1,11 @@
 # NgPokemonApp
 
+This is a first exercise from Udemy to start with Angular.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+
+## Deployment
+
+https://pokedex-rust-ten-65.vercel.app
 
 ## Development server
 
