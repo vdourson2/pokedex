@@ -4,7 +4,6 @@ import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import { DetailsPokemonComponent } from './details-pokemon/details-pokemon.component';
 import { PokemonTypeColorPipe } from './pokemon-type-color.pipe';
 import { BorderCardDirective } from './border-card.directive';
-import { RouterModule, Routes } from '@angular/router';
 import { PokemonService } from './pokemon.service';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { FormsModule } from '@angular/forms';
@@ -12,32 +11,21 @@ import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 import { SearchPokemonComponent } from './search-pokemon/search-pokemon.component';
 import { LoaderComponent } from './loader/loader.component';
-import { AuthGuard } from '../auth.guard';
-
-const pokemonRoutes: Routes = [
-  {path:'edit/pokemon/:id', component:EditPokemonComponent, canActivate: [AuthGuard]  },
-  {path:'pokemon/add', component:AddPokemonComponent, canActivate: [AuthGuard] },
-  {path:'pokemons', component:ListPokemonComponent, canActivate: [AuthGuard] },
-  {path:'pokemon/:id', component:DetailsPokemonComponent, canActivate: [AuthGuard] },
-];
 
 @NgModule({
-  declarations: [
-    ListPokemonComponent,
-    DetailsPokemonComponent,
-    PokemonTypeColorPipe,
-    BorderCardDirective,
-    PokemonFormComponent,
-    EditPokemonComponent,
-    AddPokemonComponent,
-    SearchPokemonComponent,
-    LoaderComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(pokemonRoutes)
-  ],
-  providers:[PokemonService]
+    imports: [
+        CommonModule,
+        FormsModule,
+        ListPokemonComponent,
+        DetailsPokemonComponent,
+        PokemonTypeColorPipe,
+        BorderCardDirective,
+        PokemonFormComponent,
+        EditPokemonComponent,
+        AddPokemonComponent,
+        SearchPokemonComponent,
+        LoaderComponent
+    ],
+    providers: [PokemonService]
 })
 export class PokemonModule { }
