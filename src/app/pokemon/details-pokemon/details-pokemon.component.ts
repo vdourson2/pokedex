@@ -5,6 +5,7 @@ import { PokemonService } from '../pokemon.service';
 import { PokemonTypeColorPipe } from '../pokemon-type-color.pipe';
 import { LoaderComponent } from '../loader/loader.component';
 import { NgIf, NgFor, DatePipe } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-details-pokemon',
@@ -19,14 +20,26 @@ export class DetailsPokemonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private pokemonService : PokemonService
+    private pokemonService : PokemonService,
+    private title: Title
   ) { }
 
   ngOnInit(): void {
     const id : string|null = this.route.snapshot.paramMap.get('id');
     if (id){
-      this.pokemonService.getPokemonById(+id).subscribe(pokemon => this.pokemon = pokemon);
+      this.pokemonService.getPokemonById(+id).subscribe(pokemon => {
+        this.pokemon = pokemon;
+        this.initTitle(pokemon);
+      });
     }
+  }
+
+  initTitle(pokemon: Pokemon | undefined){
+    if(!pokemon){
+      this.title.setTitle('No such pokemon');
+      return;
+    }
+    this.title.setTitle(pokemon.name);
   }
 
   deletePokemon(pokemonId : number){

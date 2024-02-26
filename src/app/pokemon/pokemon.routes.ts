@@ -12,10 +12,12 @@ export const pokemonRoutes: Routes = [{
         },
         {
             path:'pokemon/add', 
+            title: 'Ajouter pokémon',
             loadComponent: () => import('./add-pokemon/add-pokemon.component').then(module => module.AddPokemonComponent),
         },
         {
             path:'pokemons', 
+            title: 'Pokédex',
             loadComponent: () => import('./list-pokemon/list-pokemon.component').then(module => module.ListPokemonComponent),
         },
         {
